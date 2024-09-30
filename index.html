@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gestión de Cursos</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src=»scrypt.js» defer></script>
+    <script src="scrypt.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,31 +17,73 @@
 
 <body>
     <header>
-        <h1>
-            Brushworks
-        </h1>
-        <nav>
-            Despierta al artista que llevas dentro
-        </nav>
+        <h1>Brushworks</h1>
     </header>
-    <div class="box">
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#agregarcurso">Agregar Curso</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </div>
-    <article>
-        <h3 id="introduccion">Intro pag cursos</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel vulputate mauris, ac gravida lectus. Sed
-            ornare, mauris in dignissim fermentum, arcu neque tristique arcu, non elementum ligula erat vel velit. Nulla
-            facilisi. Donec non risus id neque convallis consectetur.</p>
-    </article>
-    <footer>
-        <p class="text-center">Siguenos en: </p>
-    </footer>
 
+    <div class="container">
+        <div class="box">
+            <ul>
+                <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="mostrarSeccion('cursos')">Cursos</a></li>
+                <li><a href="#" onclick="mostrarSeccion('agregarcurso')">Agregar Curso</a></li>
+                <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <section id="inicio">
+                <h3>Bienvenido a Brushworks</h3>
+                <p>Aquí puedes encontrar información sobre nuestros cursos y servicios.</p>
+            </section>
+
+            <section id="cursos" class="hidden">
+                <h3>Lista de Cursos</h3>
+                <div id="listaCursos" class="grid-container">
+                </div>
+            </section>
+
+
+            <section id="agregarcurso" class="hidden">
+                <h3>Agregar un Nuevo Curso</h3>
+                <form id="formCurso">
+                    <label for="nombre">Nombre del Curso:</label>
+                    <input type="text" id="nombre" name="nombre" required><br><br>
+                    <label for="instructor">Instructor:</label>
+                    <input type="text" id="instructor" name="instructor" required><br><br>
+                    <label for="fechaInicio">Fecha de Inicio:</label>
+                    <input type="date" id="fechaInicio" name="fechaInicio" required><br><br>
+                    <label for="duracion">Duración (semanas):</label>
+                    <input type="number" id="duracion" name="duracion" required><br><br>
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+                    <button type="submit">Agregar Curso</button>
+                </form>
+            </section>
+
+            <section id="contacto" class="hidden">
+                <h3>Contáctanos</h3>
+                <p>Para más información sobre nuestros cursos, contáctanos en <a
+                        href="mailto:jr.6311.camm@gmail.com">jr.6311.camm@gmail.com</a>.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Modal para mostrar detalles del curso -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h3 id="modal-nombre"></h3>
+            <p><strong>Instructor:</strong> <span id="modal-instructor"></span></p>
+            <p><strong>Fecha de Inicio:</strong> <span id="modal-fechaInicio"></span></p>
+            <p><strong>Duración:</strong> <span id="modal-duracion"></span> semanas</p>
+            <p><strong>Descripción:</strong> <span id="modal-descripcion"></span></p>
+        </div>
+    </div>
+
+    <footer>
+
+
+    </footer>
 </body>
 
 </html>
